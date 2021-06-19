@@ -25,17 +25,6 @@
 use rand::Rng;
 use rand::seq::SliceRandom;
 
-/// Provides the configuration for the application to run with. The
-/// configuration must be provided by the calling context.
-pub struct Configuration<'a> {
-    /// The total amount of symbols each password to be produced
-    pub password_length: usize,
-    /// The total amount of passwords to be produced
-    pub number_of_passwords: usize,
-    /// The alphabets (as slices) to be used
-    pub alphabets: Vec<&'a str>,
-}
-
 /// An alphabet is a collection of symbols which will be used to
 /// create a (pseudo)-random sequence (aka password).
 pub struct Alphabet {
@@ -45,7 +34,6 @@ pub struct Alphabet {
 impl Alphabet {
     /// Creates a new Alphabet-object with the given symbols.
     pub fn new(symbols: &str) -> Self {
-
         Alphabet { symbols: symbols.chars().collect() }
     }
 

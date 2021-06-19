@@ -93,5 +93,16 @@ mod test {
             let alphabets: Vec<Alphabet> = Vec::new();
             let _p = produce_password(8, &alphabets);
         }
+
+        #[test]
+        fn produce_password_correct_length() {
+            let alphabets = vec![
+                Alphabet::new("ABCD"),
+                Alphabet::new("12"),
+            ];
+
+            let p = produce_password(8, &alphabets);
+            assert_eq!(8, p.len());
+        }
     }
 }
